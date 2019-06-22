@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<title>{% block title %}Welcome!{% endblock %}</title>
+{% block stylesheets %}{% endblock %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+<!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg .bg-light navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Hotel Lacasserai</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('kamers') }}">Kamers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Over ons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4">Kamer voor 4 personen
+    </h1>
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-8">
+            <img class="img-fluid" src="https://pedjapetkovic.com/wp-content/uploads/2016/07/mountain-hotel-room-door-view.jpg" alt="">
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="my-3">Project Description</h3>
+            <p>Een kleine kamer met balkon dat uitzicht biedt op de rustgevende tuin aan de achterzijde.
+                De kamer leent zich zowel voor Double use als voor 4-persoonsgebruik. De kamer bevindt zich op de 1e etage die via een trap te bereiken is. Let op: er is geen lift aanwezig. De kamer is van alle luxe en comfort voorzien.</p>
+            <h3 class="my-3">Project Details</h3>
+            <ul>
+                <li>Airco</li>
+                <li>Inloopdouche</li>
+                <li>Gratis Wi-Fi</li>
+                <li>HD TV</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container date-container bg-dark pt-4 pb-1 border rounded booking-container">
+    <form class="w-100 pl-5 pr-5">
+        <div class="form-group row">
+            <label for="date" class="col-sm-10 col-md-10 col-lg-2 col-form-label text-white">Check In</label>
+            <div class="col-sm-10 col-md-10 col-lg-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                    <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                </div>
+            </div>
+            <label for="date" class="col-sm-10 col-md-10 col-lg-2 col-form-label text-white">Check Out</label>
+            <div class="col-sm-10 col-md-10 col-lg-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                    <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-2 booking-button mb-sm-3">
+                <div class="input-group">
+                    <button name="submit" type="submit" class="btn button-yellow mx-auto">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
