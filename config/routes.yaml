@@ -5,7 +5,3 @@ index:
 kamers:
     path: /kamers
     controller: App\Controller\KamersController::index
-
-kamer1:
-  path: /kamer1
-  controller: App\Controller\KamersController::index
