@@ -24,17 +24,23 @@ class Kamer
     /**
      * @ORM\Column(type="float")
      */
-    private $Prijs;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $Beschrijving;
 
     /**
      * @ORM\Column(type="float")
      */
     private $Kamer_nr;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Soort")
+     */
+    private $SoortId;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prijs;
 
     public function getId(): ?int
     {
@@ -85,6 +91,18 @@ class Kamer
     public function setKamerNr(float $Kamer_nr): self
     {
         $this->Kamer_nr = $Kamer_nr;
+
+        return $this;
+    }
+
+    public function getSoortId(): ?soort
+    {
+        return $this->SoortId;
+    }
+
+    public function setSoortId(?soort $SoortId): self
+    {
+        $this->SoortId = $SoortId;
 
         return $this;
     }

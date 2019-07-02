@@ -63,6 +63,7 @@
         </div>
     </div>
 </div>
+<form action="{{ path('kamer_check') }}" method="post">
 <div class="container date-container bg-dark pt-4 pb-1 border rounded booking-container">
     <form class="w-100 pl-5 pr-5">
         <div class="form-group row">
@@ -74,7 +75,7 @@
                             <i class="fa fa-calendar"></i>
                         </div>
                     </div>
-                    <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                    <input type="date" name="BeginDate">
                 </div>
             </div>
             <label for="date" class="col-sm-10 col-md-10 col-lg-2 col-form-label text-white">Check Out</label>
@@ -85,14 +86,27 @@
                             <i class="fa fa-calendar"></i>
                         </div>
                     </div>
-                    <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                    <input type="date" name="EndDate">
                 </div>
             </div>
             <div class="col-sm-10 col-md-10 col-lg-2 booking-button mb-sm-3">
                 <div class="input-group">
-                    <button name="submit" type="submit" class="btn btn-primary mx-auto">Search</button>
+                    <input type="submit" name="submit">
                 </div>
+
+                <form action="{{ path('kamer_check') }}" method="post">
+                </form>
+
             </div>
         </div>
     </form>
 </div>
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="https://www.linkedin.com/in/hugo-minnaard-691945160/" target="_blank"> Hugo Minnaard</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>

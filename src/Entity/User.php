@@ -19,9 +19,26 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Organisatie", inversedBy="user")
+     */
+    private $organisatie;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+
+    public function getOrganisatie(): ?Organisatie
+    {
+        return $this->organisatie;
+    }
+
+    public function setOrganisatie(?Organisatie $organisatie): self
+    {
+        $this->organisatie = $organisatie;
+
+        return $this;
     }
 }

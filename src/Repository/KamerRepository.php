@@ -47,4 +47,14 @@ class KamerRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function notIn(array $value)
+    {
+        $valueAsString = implode(",", $value);
+        return $this->createQueryBuilder('k')
+            ->where("k.id NOT IN ($valueAsString)")
+            ->getQuery()
+            ->getResult();
+    }
+
 }
