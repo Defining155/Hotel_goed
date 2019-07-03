@@ -19,32 +19,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                            <h3 class="login-heading mb-4">Log in met uw account!</h3>
-                            <form action="{{ path('fos_user_security_check') }}" method="post">
-                                {% if csrf_token %}
-                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                                {% endif %}
-                                <div class="form-label-group">
-                                    <input type="text" id="username" name="_username" value="{{ last_username }}"  required="required" autocomplete="username" class="form-control" placeholder="Gebruikersnaam"
-                                           required autofocus>
-                                    <label for="username">{{ 'gebruikersnaam'|trans }}</label>
-                                </div>
 
-                                <div class="form-label-group">
-                                    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" class="form-control"
-                                           placeholder="Password" required>
-                                    <label for="password">{{ 'wachtwoord'|trans }}</label>
-                                </div>
+                            {% block fos_user_content %}
 
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Onthouden</label>
-                                </div>
-                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                                        type="submit">Inloggen
-                                </button>
-                                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
-                            </form>
+                            {% endblock  %}
                         </div>
                     </div>
                 </div>
