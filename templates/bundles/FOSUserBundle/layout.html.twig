@@ -20,17 +20,20 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <h3 class="login-heading mb-4">Log in met uw account!</h3>
-                            <form>
+                            <form action="{{ path('fos_user_security_check') }}" method="post">
+                                {% if csrf_token %}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                {% endif %}
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}"  required="required" autocomplete="username" class="form-control" placeholder="Gebruikersnaam"
                                            required autofocus>
-                                    <label for="inputEmail">Gebruikersnaam</label>
+                                    <label for="username">{{ 'gebruikersnaam'|trans }}</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control"
+                                    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" class="form-control"
                                            placeholder="Password" required>
-                                    <label for="inputPassword">Wachtwoord</label>
+                                    <label for="password">{{ 'wachtwoord'|trans }}</label>
                                 </div>
 
                                 <div class="custom-control custom-checkbox mb-3">
@@ -40,29 +43,7 @@
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                                         type="submit">Inloggen
                                 </button>
-                                <div>
-                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                                        <a href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                        </a>
-                                    {% endif %}
-                                </div>
-
-                                {% if app.request.hasPreviousSession %}
-                                    {% for type, messages in app.session.flashbag.all() %}
-                                        {% for message in messages %}
-                                            <div class="flash-{{ type }}">
-                                                {{ message }}
-                                            </div>
-                                        {% endfor %}
-                                    {% endfor %}
-                                {% endif %}
-
-                                <div>
-                                    {% block fos_user_content %}
-                                    {% endblock fos_user_content %}
-                                </div>
+                                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
                             </form>
                         </div>
                     </div>
@@ -83,7 +64,7 @@
     }
 
     .bg-image {
-        background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+        background-image: url('https://mashtrelo.com/wp-content/uploads/2017/11/sunrise.jpg');
         background-size: cover;
         background-position: center;
     }
